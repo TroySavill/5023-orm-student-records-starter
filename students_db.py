@@ -19,9 +19,10 @@ class Student(Base):
     english_mark = Column(Integer)
      # TODO: Add column for students' mathematics marks
     science_mark = Column(Integer)
+    mathematics_mark = Column(Integer)
     does_homework = Column(Boolean)
     # TODO: Add column for students' stays on task behaviour
-    
+    stays_on_task = Column(Boolean)
 
 # This deletes all data in the records.db database, so that we are starting from scratch each time
 Base.metadata.drop_all(engine)
@@ -37,9 +38,11 @@ jack = Student (
     name = 'Jack',
     english_mark = 90,
     science_mark = 90,
+    mathematics_mark = 99,
     # TODO: Add a value for mathematics mark, once you have added that column
     does_homework = True,
     # TODO: Add a value for stays on task behaviour, once you have added that column
+    stays_on_task = True,
 )
 session.add(jack)
 
@@ -49,14 +52,22 @@ dom = Student (
     english_mark = 80,
     science_mark = 80,
     # TODO: Add a value for mathematics mark, once you have added that column
+    mathematics_mark = 85,
     does_homework = False,
     # TODO: Add a value for stays on task behaviour, once you have added that column
-
+    stays_on_task = True, 
 )
 session.add(dom)
 
  # TODO: Add code to add another student here
-
+troy = Student (
+    name = 'Troy',
+    english_mark = 22,
+    science_mark = 13,
+    mathematics_mark = 35,
+    does_homework = False,
+    stays_on_task = False,
+)
 # The changes are committed (saved in the underlying database - records.db)
 session.commit()
 
